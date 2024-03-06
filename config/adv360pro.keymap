@@ -1,4 +1,5 @@
 /* source keypos definitions */
+
 #include "../zmk-nodefree-config/keypos_def/keypos_adv360.h"
 
 /* map 360's extra keys */
@@ -15,18 +16,19 @@
 //                 &kp LCTRL &kp LALT      &kp LGUI  &kp RCTRL
 // #define X_MH    &kp HOME    &kp PG_UP
 // #define X_RH    &kp END     &kp PG_DN
-
 /* activate bluetooth */
-#define CONFIG_WIRELESS 1
 
+#define CONFIG_WIRELESS 1
 #define XXX &none
 #define ___ &trans
+
 /* Global settings */
 
 #define QUICK_TAP_MS 175
 
 /* leds and backlights */
 /* source the main keymap */
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
@@ -71,7 +73,7 @@
         Baselayer {
             bindings = <
 &kp EQUAL  &kp N1     &kp N2           &kp N3        &kp N4        &kp N5  &mo 1                                                                      &mo 1   &kp N6  &kp N7              &kp N8        &kp N9            &kp N0    &kp MINUS
-&kp TAB    &kp Q      &kp W            &kp E         &kp R         &kp T   &trans                                                                     &trans  &kp Y   &kp U               &kp I         &kp O             &kp P     &kp BSLH
+&kp TAB    &kp Q      &kp W            &kp E         &kp R         &kp T   &trans                                                                     &tog 3  &kp Y   &kp U               &kp I         &kp O             &kp P     &kp BSLH
 &kp ESC    &kp A      &hml LEFT_ALT S  &hml LCTRL D  &hml LSHFT F  &kp G   &trans            &kp LCTRL  &kp LALT     &kp LGUI   &kp RCTRL             &trans  &kp H   &hmr RIGHT_SHIFT J  &hmr RCTRL K  &hmr RIGHT_ALT L  &kp SEMI  &kp APOS
 &kp LSHFT  &kp Z      &kp X            &kp C         &kp V         &kp B                                &kp HOME     &kp PG_UP                                &kp N   &kp M               &kp COMMA     &kp DOT           &kp FSLH  &kp RSHFT
 &trans     &kp GRAVE  &kp CAPS         &kp LEFT      &kp RIGHT                     &kp BSPC  &kp DEL    &lt 2 END    &kp PG_DN  &kp ENTER  &kp SPACE                  &kp UP              &kp DOWN      &kp LBKT          &kp RBKT  &trans
@@ -95,6 +97,16 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans  &trans          &trans  &trans  &kp N4     &kp N5    &kp N6        &trans     &trans
 &trans  &trans  &trans  &trans  &trans  &trans                          &trans    &trans                          &trans  &kp N1     &kp N2    &kp N3        &trans     &trans
 &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans    &trans  &trans  &trans                  &kp N0     &kp N0    &kp DOT       &trans     &trans
+            >;
+        };
+
+        gaming {
+            bindings = <
+&kp ESC    &none      &kp N1  &kp N2  &kp N3  &kp N4  &kp N5                                                          &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp TAB    &kp TAB    &kp Q   &kp W   &kp E   &kp R   &kp T                                                           &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp CAPS   &kp LSHFT  &kp A   &kp S   &kp D   &kp F   &kp G              &trans     &trans    &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LSHFT  &kp LCTRL  &kp Z   &kp X   &kp C   &kp V                                 &trans    &trans                          &trans  &trans  &trans  &trans  &trans  &trans
+&kp LCTRL  &none      &none   &none   &none                   &kp SPACE  &kp LCTRL  &trans    &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
