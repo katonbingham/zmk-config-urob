@@ -32,7 +32,7 @@
 /* use urob's layout for Advantage 360 pro */
 
 / {
-    chosen { zmk,matrix_transform = &urobs_transform; };
+    // chosen { zmk,matrix_transform = &urobs_transform; };
 
     behaviors {
         hml: hml {
