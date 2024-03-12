@@ -52,7 +52,7 @@
 
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
-            
+
             label = "HML";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
@@ -87,7 +87,7 @@
         hm_shift_l: hm_shift_l {
             compatible = "zmk,behavior-hold-tap";
 
-            label = "HM_SHFT_L"
+            label = "HM_SHFT_L";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
@@ -104,7 +104,7 @@
         hm_shift_r: hm_shift_r {
             compatible = "zmk,behavior-hold-tap";
 
-            label = "HM_SHFT_R"
+            label = "HM_SHFT_R";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
