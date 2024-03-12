@@ -52,6 +52,7 @@
 
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
+            
             label = "HML";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
@@ -66,6 +67,7 @@
 
         hm_r: homerow_mods_right {
             compatible = "zmk,behavior-hold-tap";
+
             label = "HMR";
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
@@ -86,9 +88,7 @@
             compatible = "zmk,behavior-hold-tap";
 
             label = "HM_SHFT_L"
-            #
-
-            binding-cells = <2>;
+            #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
             flavor = "balanced";
@@ -105,9 +105,7 @@
             compatible = "zmk,behavior-hold-tap";
 
             label = "HM_SHFT_R"
-            #
-
-            binding-cells = <2>;
+            #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
             flavor = "balanced";
@@ -157,7 +155,7 @@
             bindings = <
 &kp EQUAL  &kp N1                  &kp N2            &kp N3         &kp N4                    &kp N5  &mo 1                                                                      &mo 1   &kp N6  &kp N7                     &kp N8         &kp N9             &kp N0                     &kp MINUS
 &kp TAB    &kp Q                   &kp W             &kp E          &kp R                     &kp T   &trans                                                                     &tog 3  &kp Y   &kp U                      &kp I          &kp O              &kp P                      &kp BSLH
-&kp ESC    &hm_shift_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LCTRL D  &hm_shift_l LEFT_SHIFT F  &kp G   &trans            &kp LCTRL  &kp LALT     &kp LGUI   &kp RCTRL             &trans  &kp H   &hm_shift_r RIGHT_SHIFT J  &hm_r RCTRL K  &hm_r RIGHT_ALT L  &hm_r RIGHT_GUI SEMICOLON  &kp APOS
+&kp ESC    &hm_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LCTRL D  &hm_shift_l LEFT_SHIFT F  &kp G   &trans            &kp LCTRL  &kp LALT     &kp LGUI   &kp RCTRL             &trans  &kp H   &hm_shift_r RIGHT_SHIFT J  &hm_r RCTRL K  &hm_r RIGHT_ALT L  &hm_r RIGHT_GUI SEMICOLON  &kp APOS
 &kp LSHFT  &kp Z                   &kp X             &kp C          &kp V                     &kp B                                &kp HOME     &kp PG_UP                                &kp N   &kp M                      &kp COMMA      &kp DOT            &kp FSLH                   &kp RSHFT
 &mo 4      &kp GRAVE               &kp CAPS          &kp LEFT       &kp RIGHT                                 &kp BSPC  &kp DEL    &lt 2 END    &kp PG_DN  &kp ENTER  &kp SPACE                  &kp UP                     &kp DOWN       &kp LBKT           &kp RBKT                   &trans
             >;
