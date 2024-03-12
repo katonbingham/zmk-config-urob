@@ -23,8 +23,8 @@
 #define ___ &trans
 
 /* Global settings */
-
 // #define QUICK_TAP_MS 175
+
 #define HM_TAPPING_TERM 300
 #define HM_TAPPING_TERM_FAST 200
 #define HM_PRIOR_IDLE 150
@@ -38,9 +38,7 @@
 /* use urob's layout for Advantage 360 pro */
 
 / {
-
     behaviors {
-        
         // Positional Homerow mods
         // Homerow mods that prevent accidental activations when rolling keys,
         // such as when typing `st` or `ne` on colemak-dh layouts or `as` on
@@ -49,9 +47,9 @@
         // Works by only allowing a mod to activate within tapping-term if
         // it's on the opposite side of the keyboard or on the same side thumb
         // keys.
-
         // Further optimization using urob's timerless homerow mods method:
         // https://github.com/urob/zmk-config#timeless-homerow-mods
+
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
             label = "HML";
@@ -62,7 +60,6 @@
             quick-tap-ms = <175>;
             flavor = "balanced";
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
-
             hold-trigger-key-positions = <0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 35 36 37 46 47 48 49 50 51 52 53 60 61 62 63 64 65 66 67 68 69 70 38>;
             hold-trigger-on-release;
         };
@@ -77,43 +74,48 @@
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
-
             hold-trigger-key-positions = <7 8 9 10 11 12 13 21 22 23 24 25 26 27 37 38 39 40 41 42 43 44 45 53 54 55 56 57 58 59 68 69 70 71 72 73 74 75 35 36 52 65 66 67>;
             hold-trigger-on-release;
         };
 
-        
         // Positional Homerow mods for shift
         // Use faster tapping term and disable some features that may
         // cause false negatives.
+
         hm_shift_l: hm_shift_l {
             compatible = "zmk,behavior-hold-tap";
+
             label = "HM_SHFT_L"
-            #binding-cells = <2>;
+            #
+
+            binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
-
             hold-trigger-key-positions = <0 1 2 3 4 5 6 14 15 16 17 18 19 20 28 29 30 31 32 33 34 35 36 37 46 47 48 49 50 51 52 53 60 61 62 63 64 65 66 67 68 69 70 38>;
+
             // hold-trigger-key-positions = <KEYS_R THUMBS>;
             // hold-trigger-on-release;
         };
 
         hm_shift_r: hm_shift_r {
             compatible = "zmk,behavior-hold-tap";
+
             label = "HM_SHFT_R"
-            #binding-cells = <2>;
+            #
+
+            binding-cells = <2>;
             bindings = <&kp>, <&kp>;
 
             flavor = "balanced";
             tapping-term-ms = <HM_TAPPING_TERM_FAST>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <HM_PRIOR_IDLE>;
-
             hold-trigger-key-positions = <7 8 9 10 11 12 13 21 22 23 24 25 26 27 37 38 39 40 41 42 43 44 45 53 54 55 56 57 58 59 68 69 70 71 72 73 74 75 35 36 52 65 66 67>;
+
             // hold-trigger-key-positions = <KEYS_L THUMBS>;
             // hold-trigger-on-release;
         };
@@ -131,7 +133,6 @@
         //     compatible = "zmk,behavior-hold-tap";
         //     #binding-cells = <2>;
         //     bindings = <&kp>, <&kp>;
-
         //     flavor = "balanced";
         //     tapping-term-ms = <HM_TAPPING_TERM>;
         //     quick-tap-ms = <200>;
@@ -140,23 +141,25 @@
 
     keymap {
         compatible = "zmk,keymap";
-//  QWERTY KEY POSITIONS
-// ╭───────────────────────────╮             ╭────────────────────────────╮
-// │     1   2   3   4   5  MO1│             |MO1  6   7   8   9   0   -  |
-// │TAB  Q   W   E   R   T     │             │     Y   U   I   O   P   \  │
-// │ESC  A   S   D   F   G ╭───╯             ╰───╮ H   J   K   L   ;   '  │
-// │SHF  Z   X   C   V   B │ ╭───────╮ ╭───────╮ | N   M   ,   .   /  SHF │
-// │     `  CAP  ⮜  ⮞ ╭───╯╭╯CTL ALT│ │WIN CTL╰╮╰───╮ ⮝  ⮟   [   ]      |
-// ╰───────────────────╯╭ BK_ DEL HME│ │PGU RET SPC ╮╰────────────────────╯
-//                      | BK_ DEL END| |PGD RET SPC |
-//                      ╰────────────╯ ╰────────────╯
+
+        //  QWERTY KEY POSITIONS
+        // ╭───────────────────────────╮             ╭────────────────────────────╮
+        // │     1   2   3   4   5  MO1│             |MO1  6   7   8   9   0   -  |
+        // │TAB  Q   W   E   R   T     │             │     Y   U   I   O   P   \  │
+        // │ESC  A   S   D   F   G ╭───╯             ╰───╮ H   J   K   L   ;   '  │
+        // │SHF  Z   X   C   V   B │ ╭───────╮ ╭───────╮ | N   M   ,   .   /  SHF │
+        // │     `  CAP  ⮜  ⮞ ╭───╯╭╯CTL ALT│ │WIN CTL╰╮╰───╮ ⮝  ⮟   [   ]      |
+        // ╰───────────────────╯╭ BK_ DEL HME│ │PGU RET SPC ╮╰────────────────────╯
+        //                      | BK_ DEL END| |PGD RET SPC |
+        //                      ╰────────────╯ ╰────────────╯
+
         Baselayer {
             bindings = <
-&kp EQUAL  &kp N1     &kp N2           &kp N3        &kp N4        &kp N5  &mo 1                                                                      &mo 1   &kp N6  &kp N7              &kp N8        &kp N9            &kp N0    &kp MINUS
-&kp TAB    &kp Q      &kp W            &kp E         &kp R         &kp T   &trans                                                                     &tog 3  &kp Y   &kp U               &kp I         &kp O             &kp P     &kp BSLH
-&kp ESC    &kp A      &hm_l LEFT_ALT S  &hm_l LCTRL D  &hm_l LSHFT F  &kp G   &trans            &kp LCTRL  &kp LALT     &kp LGUI   &kp RCTRL             &trans  &kp H   &hm_r RIGHT_SHIFT J  &hm_r RCTRL K  &hm_r RIGHT_ALT L  &kp SEMI  &kp APOS
-&kp LSHFT  &kp Z      &kp X            &kp C         &kp V         &kp B                                &kp HOME     &kp PG_UP                                &kp N   &kp M               &kp COMMA     &kp DOT           &kp FSLH  &kp RSHFT
-&trans     &kp GRAVE  &kp CAPS         &kp LEFT      &kp RIGHT                     &kp BSPC  &kp DEL    &lt 2 END    &kp PG_DN  &kp ENTER  &kp SPACE                  &kp UP              &kp DOWN      &kp LBKT          &kp RBKT  &trans
+&kp EQUAL  &kp N1                  &kp N2            &kp N3         &kp N4                    &kp N5  &mo 1                                                                      &mo 1   &kp N6  &kp N7                     &kp N8         &kp N9             &kp N0                     &kp MINUS
+&kp TAB    &kp Q                   &kp W             &kp E          &kp R                     &kp T   &trans                                                                     &tog 3  &kp Y   &kp U                      &kp I          &kp O              &kp P                      &kp BSLH
+&kp ESC    &hm_shift_l LEFT_GUI A  &hm_l LEFT_ALT S  &hm_l LCTRL D  &hm_shift_l LEFT_SHIFT F  &kp G   &trans            &kp LCTRL  &kp LALT     &kp LGUI   &kp RCTRL             &trans  &kp H   &hm_shift_r RIGHT_SHIFT J  &hm_r RCTRL K  &hm_r RIGHT_ALT L  &hm_r RIGHT_GUI SEMICOLON  &kp APOS
+&kp LSHFT  &kp Z                   &kp X             &kp C          &kp V                     &kp B                                &kp HOME     &kp PG_UP                                &kp N   &kp M                      &kp COMMA      &kp DOT            &kp FSLH                   &kp RSHFT
+&mo 4      &kp GRAVE               &kp CAPS          &kp LEFT       &kp RIGHT                                 &kp BSPC  &kp DEL    &lt 2 END    &kp PG_DN  &kp ENTER  &kp SPACE                  &kp UP                     &kp DOWN       &kp LBKT           &kp RBKT                   &trans
             >;
         };
 
@@ -187,6 +190,16 @@
 &kp CAPS   &kp LSHFT  &kp A   &kp S   &kp D   &kp F   &kp G              &trans     &trans    &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &kp LSHFT  &kp LCTRL  &kp Z   &kp X   &kp C   &kp V                                 &trans    &trans                          &trans  &trans  &trans  &trans  &trans  &trans
 &kp LCTRL  &none      &none   &none   &none                   &kp SPACE  &kp LCTRL  &trans    &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        NAV {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans          &trans          &trans           &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                                                    &trans  &trans  &trans          &kp UP_ARROW    &trans           &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans          &trans  &trans    &trans  &trans          &trans  &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                          &trans    &trans                          &trans  &trans          &trans          &trans           &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans    &trans  &trans  &trans                  &trans          &trans          &trans           &trans  &trans
             >;
         };
     };
