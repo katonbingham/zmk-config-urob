@@ -27,32 +27,47 @@
 #define ___ &trans
 
 /* Global settings */
-// #define QUICK_TAP_MS 175
+#define QUICK_TAP_MS 75
 
 #define HM_TAPPING_TERM 300
 #define HM_TAPPING_TERM_FAST 200
 #define HM_PRIOR_IDLE 150
 
+// use require-prior-idle-ms for combos
+#undef COMBO_HOOK
+#define COMBO_HOOK require-prior-idle-ms = <150>;
+
+#define COMBO_TERM_FAST 18
+#define COMBO_TERM_SLOW 30
+
+// // make homerow combos tap-only (so HRMs can be chorded instantaneously)
+// #define HRC_TAB    &hml         LA(LCTRL) TAB
+// #define HRC_REPEAT &hml_repeat  LS(LCTRL) 0
+// #define HRC_LPAR   &hmr_lpar_lt RS(LCTRL) 0
+// #define HRC_RPAR   &hmr_rpar_gt LA(LCTRL) 0
+
 /* leds and backlights */
 /* source the main keymap */
 
 #include <behaviors.dtsi>
+// #include <combos.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
 /* use urob's layout for Advantage 360 pro */
 
 / {
     behaviors {
-        // Positional Homerow mods
-        // Homerow mods that prevent accidental activations when rolling keys,
-        // such as when typing `st` or `ne` on colemak-dh layouts or `as` on
-        // qwerty.
-        //
-        // Works by only allowing a mod to activate within tapping-term if
-        // it's on the opposite side of the keyboard or on the same side thumb
-        // keys.
-        // Further optimization using urob's timerless homerow mods method:
-        // https://github.com/urob/zmk-config#timeless-homerow-mods
+        /* Positional Homerow mods
+         * Homerow mods that prevent accidental activations when rolling keys,
+         * such as when typing `st` or `ne` on colemak-dh layouts or `as` on
+         * qwerty.
+         *
+         * Works by only allowing a mod to activate within tapping-term if
+         * it's on the opposite side of the keyboard or on the same side thumb
+         * keys.
+         * Further optimization using urob's timerless homerow mods method:
+         * https://github.com/urob/zmk-config#timeless-homerow-mods
+         */ 
 
         hm_l: homerow_mods_left {
             compatible = "zmk,behavior-hold-tap";
@@ -133,34 +148,34 @@
         // };
     };
 
-    combos {
-        compatible = "zmk,combos";
+    // combos {
+    //     compatible = "zmk,combos";
 
-        Tab {
-            bindings = <&kp TAB>;
-            key-positions = <31 30>;
-        };
+    //     Tab {
+    //         bindings = <&kp TAB>;
+    //         key-positions = <31 30>;
+    //     };
 
-        Copy {
-            bindings = <&kp LC(C)>;
-            key-positions = <48 49>;
-        };
+    //     Copy {
+    //         bindings = <&kp LC(C)>;
+    //         key-positions = <48 49>;
+    //     };
 
-        Paste {
-            bindings = <&kp LC(V)>;
-            key-positions = <49 50>;
-        };
+    //     Paste {
+    //         bindings = <&kp LC(V)>;
+    //         key-positions = <49 50>;
+    //     };
 
-        Enter {
-            bindings = <&kp ENTER>;
-            key-positions = <18 17>;
-        };
+    //     Enter {
+    //         bindings = <&kp ENTER>;
+    //         key-positions = <18 17>;
+    //     };
 
-        Escape {
-            bindings = <&kp ESCAPE>;
-            key-positions = <17 16>;
-        };
-    };
+    //     Escape {
+    //         bindings = <&kp ESCAPE>;
+    //         key-positions = <17 16>;
+    //     };
+    // };
 
     keymap {
         compatible = "zmk,keymap";
@@ -212,7 +227,7 @@
 &kp TAB    &kp TAB    &kp Q   &kp W   &kp E   &kp R   &kp T                                                           &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &kp CAPS   &kp LSHFT  &kp A   &kp S   &kp D   &kp F   &kp G              &trans     &trans    &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &kp LSHFT  &kp LCTRL  &kp Z   &kp X   &kp C   &kp V                                 &trans    &trans                          &trans  &trans  &trans  &trans  &trans  &trans
-&kp LCTRL  &none      &none   &none   &none                   &kp SPACE  &kp LCTRL  &trans    &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&kp LCTRL  &none      &none   &none   &kp LALT                &kp SPACE  &kp LCTRL  &trans    &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
